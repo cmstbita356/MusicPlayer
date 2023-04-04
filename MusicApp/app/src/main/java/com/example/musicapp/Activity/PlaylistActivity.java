@@ -119,6 +119,12 @@ public class PlaylistActivity extends AppCompatActivity {
                                 case R.id.menu_delete:
                                     String path = "Playlist/" + playlist.getId();
                                     FirebaseHelper.deleteData(path);
+                                    ArrayList<String> keys = PlaylistDetailData.getKeysWithIdPlaylist(dataSnapshot, playlist.getId());
+                                    for(String s : keys)
+                                    {
+                                        path = "PlaylistDetail/" + s;
+                                        FirebaseHelper.deleteData(path);
+                                    }
                                     return true;
                                 default:
                                     return false;

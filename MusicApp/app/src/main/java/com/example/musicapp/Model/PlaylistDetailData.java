@@ -50,7 +50,18 @@ public class PlaylistDetailData {
         }
         return null;
     }
-
+    public static ArrayList<String> getKeysWithIdPlaylist(DataSnapshot dataSnapshot, int id_playlist)
+    {
+        ArrayList<String> result = new ArrayList<>();
+        for (DataSnapshot snapshot : dataSnapshot.child("PlaylistDetail").getChildren())
+        {
+            if(snapshot.child("Id_Playlist").getValue(Integer.class).equals(id_playlist))
+            {
+                result.add(snapshot.getKey());
+            }
+        }
+        return result;
+    }
     public static boolean checkSongAdded(DataSnapshot dataSnapshot, int id_nguoidung, int id_baihat) {
         ArrayList<Playlist> playlists = PlaylistData.getPlaylist(dataSnapshot, id_nguoidung);
         for (Playlist item : playlists) {
@@ -60,5 +71,6 @@ public class PlaylistDetailData {
         }
         return false;
     }
+
 }
 
