@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MusicApp</string>
+    <string name="app_name">Dolphin Music</string>
     <string-array name="time">
         <item>0</item>
         <item>5</item>
