@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#444444">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Playlists"
+        android:textSize="30sp"
+        android:textColor="@color/secondary_color"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border_playlistdetail"
+        android:padding="10dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dialog_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#444444"
+        android:layout_weight="1"/>
+    <LinearLayout
+        android:id="@+id/add_playlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/ic_add_play_playlist"
+            android:background="@drawable/border_play_playlist"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:text="Add new playlist"
+            android:gravity="start|center"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/main_text"
+            android:layout_marginStart="10dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/secondary_color"
+        android:textSize="20sp"/>
+
+</LinearLayout>

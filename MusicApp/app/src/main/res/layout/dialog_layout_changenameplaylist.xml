@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#000000">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change playlist's name"
+        android:textColor="@color/main_text"
+        android:textSize="25sp"
+        android:padding="20dp"/>
+    <EditText
+        android:id="@+id/editText_namePlaylist"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Set new name here"
+        android:textColorHint="#B2B2B2"
+        android:textSize="20sp"
+        android:background="@drawable/background_item_library"
+        android:padding="20dp"
+        android:gravity="center"
+        android:textColor="@color/main_text"/>
+    <Button
+        android:id="@+id/button_ok"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:backgroundTint="#111111"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"/>
+</LinearLayout>
