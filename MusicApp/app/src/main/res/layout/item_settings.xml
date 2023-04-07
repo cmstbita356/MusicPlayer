@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    android:background="#444444"
+    android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/tV_username"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="20sp"
+            android:textColor="@color/secondary_color"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Đánh giá:"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:padding="10dp"/>
+                <ImageButton
+                    android:id="@+id/iB_starr1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/ic_star_select"
+                    android:padding="10dp"/>
+                <ImageButton
+                    android:id="@+id/iB_starr2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_star_select"
+                    android:padding="10dp"/>
+                <ImageButton
+                    android:id="@+id/iB_starr3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_star_select"
+                    android:padding="10dp"/>
+                <ImageButton
+                    android:id="@+id/iB_starr4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_star_select"
+                    android:padding="10dp"/>
+                <ImageButton
+                    android:id="@+id/iB_starr5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_star_select"
+                    android:padding="10dp"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tV_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            />
+
+</LinearLayout>
