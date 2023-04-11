@@ -1,4 +1,4 @@
-package com.example.musicapp.Activity;
+package com.example.musicapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.musicapp.Activity.FindActivity;
 import com.example.musicapp.Model.HistorySearchData;
 import com.example.musicapp.R;
 import com.example.musicapp.Service.FirebaseHelper;
@@ -87,4 +88,5 @@ public class HistorySearchAdapter extends RecyclerView.Adapter<HistorySearchAdap
         });
         popupMenu.show();
     }
+
 }

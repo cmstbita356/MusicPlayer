@@ -17,7 +17,7 @@ public class PlaylistData {
         }
         return result;
     }
-    public static int getMaxId(DataSnapshot dataSnapshot, int id_nguoidung)
+    public static int getMaxId(DataSnapshot dataSnapshot)
     {
         int maxid = 0;
         for (DataSnapshot snapshot : dataSnapshot.child("Playlist").getChildren())

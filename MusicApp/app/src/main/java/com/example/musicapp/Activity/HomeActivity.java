@@ -64,7 +64,6 @@ public class HomeActivity extends AppCompatActivity {
         StorageData.mediaPlayer.setVolume(volume, volume);
 
 
-
         FirebaseHelper.getData(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

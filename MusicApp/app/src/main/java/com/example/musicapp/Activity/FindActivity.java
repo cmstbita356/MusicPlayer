@@ -10,14 +10,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.musicapp.Adapter.FindAdapter;
+import com.example.musicapp.Adapter.HistorySearchAdapter;
 import com.example.musicapp.Model.HistorySearch;
 import com.example.musicapp.Model.HistorySearchData;
 import com.example.musicapp.Model.Song;
@@ -62,8 +61,10 @@ public class    FindActivity extends AppCompatActivity {
                 bt_find.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        HistorySearch his=new HistorySearch( StorageData.id_user,editText_find.getText().toString());
-                        Mdata.child("History_Search").push().setValue(his);
+                        if(HistorySearchData.check(dataSnapshot,StorageData.id_user,editText_find.getText().toString())==false){
+                            HistorySearch his=new HistorySearch( StorageData.id_user,editText_find.getText().toString());
+                            Mdata.child("History_Search").push().setValue(his);
+                        }
                         ArrayList<Song> listSong = SongData.getSongByName(editText_find.getText().toString(), dataSnapshot);
                         FindAdapter adapter = new FindAdapter(listSong, context);
                         recyclerView_find.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));

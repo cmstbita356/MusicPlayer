@@ -351,9 +351,9 @@ public class PlayActivity extends AppCompatActivity {
                                         button_ok.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                String key = String.valueOf(PlaylistData.getMaxId(dataSnapshot, StorageData.id_user) + 1);
+                                                String key = String.valueOf(PlaylistData.getMaxId(dataSnapshot) + 1);
                                                 Map<String, Object> childValues = new HashMap<>();
-                                                childValues.put("Id", PlaylistData.getMaxId(dataSnapshot, StorageData.id_user) + 1);
+                                                childValues.put("Id", PlaylistData.getMaxId(dataSnapshot) + 1);
                                                 childValues.put("Id_NguoiDung", StorageData.id_user);
                                                 childValues.put("Ten", editText_namePlaylist.getText().toString());
                                                 FirebaseHelper.addData("Playlist", key, childValues);

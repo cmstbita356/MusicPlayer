@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:layout_margin="20dp">
+            android:layout_margin="10dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:layout_margin="20dp">
+            android:layout_margin="10dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -108,14 +108,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
+                    <RadioGroup
+                        android:id="@+id/RadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/RB_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="true"
+                            android:text="Tất cả"
+                            android:textColor="@color/main_text"/>
+                        <RadioButton
+                            android:id="@+id/RB_positive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tích cực"
+                            android:textColor="@color/main_text"/>
+                        <RadioButton
+                            android:id="@+id/RB_ascending"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tăng Dần"
+                            android:textColor="@color/main_text"/>
+                    </RadioGroup>
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerVieww"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@color/layout_background" />
-
+                        android:background="@color/layout_background"/>
                     <Button
                         android:id="@+id/addFeedback"
                         android:layout_width="match_parent"

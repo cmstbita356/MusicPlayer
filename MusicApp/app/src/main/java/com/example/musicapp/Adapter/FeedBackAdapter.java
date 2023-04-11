@@ -1,4 +1,4 @@
-package com.example.musicapp.Activity;
+package com.example.musicapp.Adapter;
 
 
 import android.content.Context;

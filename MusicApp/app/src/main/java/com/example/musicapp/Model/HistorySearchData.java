@@ -39,4 +39,15 @@ public class HistorySearchData {
         }
         return null;
     }
+    public static boolean check(DataSnapshot dataSnapshot, int id, String search)
+    {
+        for (String hisSearch : getListHistory(dataSnapshot, id))
+        {
+            if(search.equals(hisSearch))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

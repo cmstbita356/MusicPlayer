@@ -12,19 +12,47 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Setting"
-            android:textColor="@color/main_text"
-            android:textSize="35sp"/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Setting"
+                android:gravity="center"
+                android:textColor="@color/main_text"
+                android:textSize="35sp"/>
+            <LinearLayout
+                android:id="@+id/logOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border_logout">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_logout"
+                    android:layout_marginEnd="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Log out"
+                    android:textColor="#CF0A0A"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="20dp"
-            android:layout_weight="1">
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,67 +62,130 @@
                 android:layout_gravity="center"/>
             <SeekBar
                 android:id="@+id/seekBar_volume"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:progressTint="@color/secondary_color"
                 android:thumbTint="@color/secondary_color"
                 android:progress="50"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="20dp"
-            android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:layout_gravity="center"
                 android:text="Sleep timer: "
                 android:textColor="@color/main_text"
-                android:layout_gravity="center"/>
+                android:textSize="20sp" />
+
             <Spinner
                 android:id="@+id/spinner_sleep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginStart="20dp"
                 android:background="@drawable/custom_spinner_arrow"
-                android:paddingEnd="30dp"
-                android:layout_gravity="center"/>
+                android:paddingEnd="30dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textColor="@color/main_text"
-                android:text="minute"
+                android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:layout_gravity="center"/>
+                android:text="minute"
+                android:textColor="@color/main_text"
+                android:textSize="20sp" />
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/logOut"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="20dp"
-            android:background="@drawable/border_logout"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:paddingStart="7dp"
-            android:paddingEnd="7dp">
-            <ImageView
-                android:layout_width="wrap_content"
+            android:layout_marginTop="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_logout"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="center"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Log out"
-                android:textColor="#CF0A0A"
-                android:layout_gravity="center"/>
+                android:orientation="horizontal"
+                android:layout_marginLeft="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Nhận xét Và Đánh Giá:"
+                    android:textSize="22dp"
+                    android:textColor="@color/main_text"/>
+                <TextView
+                    android:id="@+id/countStar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:text=""
+                    android:textSize="22dp"
+                    android:textColor="@color/main_text"/>
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@color/layout_background"
+                    android:src="@drawable/ic_star_select"
+                    android:layout_marginRight="10dp"/>
+                <RadioGroup
+                    android:id="@+id/RadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp">
+                    <RadioButton
+                        android:id="@+id/RB_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Tất cả"
+                        android:textColor="@color/main_text"/>
+                    <RadioButton
+                        android:id="@+id/RB_positive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tích cực"
+                        android:textColor="@color/main_text"/>
+                    <RadioButton
+                        android:id="@+id/RB_ascending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tăng Dần"
+                        android:textColor="@color/main_text"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerVieww"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/layout_background" />
+
+                    <Button
+                        android:id="@+id/addFeedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Thêm Nhận Xét"/>
+                </LinearLayout>
+
+            </ScrollView>
         </LinearLayout>
 
     </LinearLayout>
@@ -230,3 +321,5 @@
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
+
+

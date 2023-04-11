@@ -17,11 +17,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.musicapp.Adapter.FeedBackAdapter;
 import com.example.musicapp.Model.FeedBack;
 import com.example.musicapp.Model.FeedBackData;
 import com.example.musicapp.R;
@@ -53,6 +55,7 @@ public class SettingActivity extends AppCompatActivity {
     RecyclerView recyclerVieww;
     TextView countStar;
     ArrayList<FeedBack> lisFB=new ArrayList<>();
+    RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,17 +66,55 @@ public class SettingActivity extends AppCompatActivity {
         FirebaseHelper.getDataChange(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                lisFB= FeedBackData.getAllFeedBack(dataSnapshot);
+                lisFB=FeedBackData.getAllFeedBack(dataSnapshot);
                 countStar.setText(CountStar()+"/5 ");
-
-                ArrayList<FeedBack> feedBack = FeedBackData.getAllFeedBack(dataSnapshot);
-                FeedBackAdapter adapter = new FeedBackAdapter(feedBack, dataSnapshot, context);
+                FeedBackAdapter adapter = new FeedBackAdapter(lisFB, dataSnapshot, context);
                 recyclerVieww.setLayoutManager(new LinearLayoutManager(context));
                 recyclerVieww.setAdapter(adapter);
+                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        switch (checkedId) {
+                            case R.id.RB_all:
+                                lisFB=FeedBackData.getAllFeedBack(dataSnapshot);
+                                FeedBackAdapter adapter = new FeedBackAdapter(lisFB, dataSnapshot, context);
+                                recyclerVieww.setLayoutManager(new LinearLayoutManager(context));
+                                recyclerVieww.setAdapter(adapter);
+                                break;
+                            case R.id.RB_positive:
+                                lisFB=FeedBackData.getAllFeedBack(dataSnapshot);
+                                ArrayList<FeedBack>fb=new ArrayList<FeedBack>();
+                                for(int i=0;i<lisFB.size();i++){
+                                    if(lisFB.get(i).getStar_vote()>=4){
+                                        fb.add(lisFB.get(i));
+                                    }
+                                }
+                                adapter = new FeedBackAdapter(fb, dataSnapshot, context);
+                                recyclerVieww.setLayoutManager(new LinearLayoutManager(context));
+                                recyclerVieww.setAdapter(adapter);
+                                break;
+                            case R.id.RB_ascending:
+                                lisFB=FeedBackData.getAllFeedBack(dataSnapshot);
+                                for(int i=0;i<lisFB.size();i++){
+                                    for(int j=0;j<lisFB.size()-1;j++){
+                                        if(lisFB.get(j).getStar_vote()>lisFB.get(j+1).getStar_vote()){
+                                            FeedBack temp=lisFB.get(j);
+                                            lisFB.set(j,lisFB.get(j+1));
+                                            lisFB.set(j+1,temp);
+                                        }
+                                    }
+                                }
+                                adapter = new FeedBackAdapter(lisFB, dataSnapshot, context);
+                                recyclerVieww.setLayoutManager(new LinearLayoutManager(context));
+                                recyclerVieww.setAdapter(adapter);
+                                break;
+                        }
+                    }
+                });
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
         //Khôi phục giá trị
@@ -121,7 +162,7 @@ public class SettingActivity extends AppCompatActivity {
                     StorageData.timer = new CountDownTimer( valuems ,1000) {
                         @Override
                         public void onTick(long millisUntilFinished) {
-                            Toast.makeText(getApplicationContext(), String.valueOf(millisUntilFinished / 1000), Toast.LENGTH_SHORT).show();
+
                         }
 
                         @Override
@@ -236,6 +277,7 @@ public class SettingActivity extends AppCompatActivity {
         txv_namesong = findViewById(R.id.txv_namesong);
         bt_next = findViewById(R.id.bt_next);
         bt_previous = findViewById(R.id.bt_previous);
+        radioGroup=findViewById(R.id.RadioGroup);
     }
     private float CountStar(){
         float count=0;
